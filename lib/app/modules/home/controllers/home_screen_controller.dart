@@ -1,10 +1,10 @@
 import 'package:control_client/app/db/database.dart';
 import 'package:control_client/models/customer.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
-import 'package:get_storage/get_storage.dart';
+import 'package:random_color/random_color.dart';
 
 class HomeScreenController extends GetxController {
-  final box = GetStorage();
   bool _haveCustomer = false;
   get haveCustomer => _haveCustomer;
   List<Customer> _customer = [];
@@ -27,6 +27,7 @@ class HomeScreenController extends GetxController {
   chargeCustomer() async {
     this._customer.clear();
     this._customer = await CustomerDatabase.customer();
+    print(this._customer);
     update();
   }
 }

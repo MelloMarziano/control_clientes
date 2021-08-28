@@ -1,14 +1,12 @@
 import 'package:control_client/app/modules/splash_screen/views/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
-import 'package:get_storage/get_storage.dart';
 
 import 'app/modules/splash_screen/bindings/splash_screen_binding.dart';
 import 'app/routes/app_pages.dart';
 import 'package:get/get.dart';
 
-void main() async {
-  await GetStorage.init();
+void main() {
   runApp(MyApp());
 }
 

@@ -5,7 +5,6 @@ import 'package:control_client/app/routes/app_routes.dart';
 import 'package:control_client/models/customer.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
 
 class NewCustomerController extends GetxController {
   List<Customer> _customer = [];

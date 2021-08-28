@@ -1,12 +1,21 @@
+import 'dart:math';
 import 'package:control_client/app/modules/home/controllers/home_screen_controller.dart';
-import 'package:control_client/app/modules/new_customer/views/new_customer_screen.dart';
 import 'package:control_client/app/routes/app_routes.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class HomeScreen extends StatelessWidget {
+  final List colors = [
+    Colors.red,
+    Colors.green,
+    Colors.orange.shade600,
+    Colors.yellow.shade700,
+    Colors.green.shade300,
+    Colors.red.shade400
+  ];
+  final Random random = new Random();
+  int index = 0;
+
   @override
   Widget build(BuildContext context) {
     return GetBuilder<HomeScreenController>(
@@ -40,6 +49,7 @@ class HomeScreen extends StatelessWidget {
               width: double.infinity,
               color: Color(0xFFf4f6fa),
               child: ListView.builder(
+                addAutomaticKeepAlives: true,
                 itemCount: _.customer.length,
                 itemBuilder: (context, i) {
                   if (_.customer.length <= 0) {
@@ -47,8 +57,8 @@ class HomeScreen extends StatelessWidget {
                       child: Text("No hay Customer"),
                     );
                   } else {
-                    return _contactWidget(_.customer[i].name,
-                        _.customer[i].customerId.toString());
+                    return _contactWidget(
+                        _.customer[i].name, _.customer[i].customerId);
                   }
                 },
               ),
@@ -104,7 +114,8 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget _contactWidget(String nombre, String id) {
+  Widget _contactWidget(String nombre, int id) {
+    index = random.nextInt(5);
     return Container(
       margin: EdgeInsets.symmetric(
         vertical: 5,
@@ -130,7 +141,7 @@ class HomeScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           CircleAvatar(
-            backgroundColor: Colors.yellow,
+            backgroundColor: colors[index],
             child: Text(nombre.substring(0, 1)),
           ),
           SizedBox(

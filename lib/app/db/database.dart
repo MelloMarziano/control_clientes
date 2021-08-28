@@ -37,4 +37,16 @@ class CustomerDatabase {
             name: customerMap[i]["name"],
             phone: customerMap[i]["phone"]));
   }
+
+  static Future<List<Customer>> customerbyId(int id) async {
+    Database db = await _openDatabase();
+    final List<Map<String, dynamic>> customerMap =
+        await db.query("customer", where: "customerId = ?", whereArgs: [id]);
+    return List.generate(
+        customerMap.length,
+        (i) => Customer(
+            customerId: customerMap[i]['customerId'],
+            name: customerMap[i]["name"],
+            phone: customerMap[i]["phone"]));
+  }
 }
