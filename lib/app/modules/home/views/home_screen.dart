@@ -152,7 +152,7 @@ class HomeScreen extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
-              Get.toNamed(AppRoutes.DETAIL, arguments: id);
+              Get.offAndToNamed(AppRoutes.DETAIL, arguments: id);
             },
             child: Container(
               height: 32,

@@ -38,6 +38,18 @@ class CustomerDatabase {
             phone: customerMap[i]["phone"]));
   }
 
+  static Future<List<Address>> address() async {
+    Database db = await _openDatabase();
+    final List<Map<String, dynamic>> addressMap = await db.query("address");
+    return List.generate(
+      addressMap.length,
+      (i) => Address(
+          customerId: addressMap[i]['customerId'],
+          address: addressMap[i]["address"],
+          addressId: addressMap[i]["addressId"]),
+    );
+  }
+
   static Future<List<Customer>> customerbyId(int id) async {
     Database db = await _openDatabase();
     final List<Map<String, dynamic>> customerMap =
@@ -48,5 +60,18 @@ class CustomerDatabase {
             customerId: customerMap[i]['customerId'],
             name: customerMap[i]["name"],
             phone: customerMap[i]["phone"]));
+  }
+
+  static Future<List<Address>> customerAddressbyId(int id) async {
+    Database db = await _openDatabase();
+    final List<Map<String, dynamic>> addressMap =
+        await db.query("address", where: "customerId = ?", whereArgs: [id]);
+    return List.generate(
+      addressMap.length,
+      (i) => Address(
+          customerId: addressMap[i]['customerId'],
+          address: addressMap[i]["address"],
+          addressId: addressMap[i]["addressId"]),
+    );
   }
 }
