@@ -12,203 +12,205 @@ class DetailScreen extends StatelessWidget {
     return GetBuilder<DetailScreenController>(
       init: DetailScreenController(),
       builder: (_) => Scaffold(
-        body: Column(
-          children: [
-            Container(
-              height: MediaQuery.of(context).size.height * 0.25,
-              width: double.infinity,
-              color: Color(0xFFf4f6fa),
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Color(0xFF1358f8),
-                  borderRadius: BorderRadius.only(
-                    bottomRight: Radius.circular(70),
-                  ),
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    SizedBox(
-                      height: 10,
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        Get.offAndToNamed(AppRoutes.HOME);
-                      },
-                      child: Container(
-                        alignment: Alignment.centerRight,
-                        padding: EdgeInsets.symmetric(horizontal: 10),
-                        height: 32,
-                        width: 70,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.only(
-                            topRight: Radius.circular(20),
-                            bottomRight: Radius.circular(20),
-                          ),
-                        ),
-                        child: Icon(Icons.chevron_left),
-                      ),
-                    ),
-                    Container(
-                      alignment: Alignment.center,
-                      width: double.infinity,
-                      child: Column(
-                        children: [
-                          Text(
-                            _.customer.length > 0 ? _.customer[0].name : "",
-                            style: GoogleFonts.poppins(
-                                textStyle: TextStyle(fontSize: 25),
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold),
-                          ),
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(
-                                Icons.phone,
-                                color: Colors.white,
-                              ),
-                              SizedBox(
-                                width: 10,
-                              ),
-                              Text(
-                                _.customer.length > 0
-                                    ? _.customer[0].phone
-                                    : "",
-                                style: GoogleFonts.poppins(
-                                    textStyle: TextStyle(fontSize: 18),
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            Container(
-              padding: EdgeInsets.symmetric(
-                vertical: 30,
-                horizontal: 30,
-              ),
-              height: MediaQuery.of(context).size.height * 0.67,
-              width: double.infinity,
-              color: Color(0xFFf4f6fa),
-              child: Container(
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              Container(
+                height: MediaQuery.of(context).size.height * 0.25,
                 width: double.infinity,
-                height: double.infinity,
-                decoration: BoxDecoration(
-                  color: Colors.grey.shade200,
-                  borderRadius: BorderRadius.circular(5),
-                ),
-                child: Column(
-                  children: [
-                    Expanded(
-                      child: Container(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: 10,
-                          vertical: 20,
+                color: Color(0xFFf4f6fa),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Color(0xFF1358f8),
+                    borderRadius: BorderRadius.only(
+                      bottomRight: Radius.circular(70),
+                    ),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      SizedBox(
+                        height: 10,
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          Get.offAndToNamed(AppRoutes.HOME);
+                        },
+                        child: Container(
+                          alignment: Alignment.centerRight,
+                          padding: EdgeInsets.symmetric(horizontal: 10),
+                          height: 32,
+                          width: 70,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.only(
+                              topRight: Radius.circular(20),
+                              bottomRight: Radius.circular(20),
+                            ),
+                          ),
+                          child: Icon(Icons.chevron_left),
                         ),
+                      ),
+                      Container(
+                        alignment: Alignment.center,
+                        width: double.infinity,
                         child: Column(
                           children: [
+                            Text(
+                              _.customer.length > 0 ? _.customer[0].name : "",
+                              style: GoogleFonts.poppins(
+                                  textStyle: TextStyle(fontSize: 25),
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold),
+                            ),
                             Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Text(
-                                  "ID",
-                                  style: GoogleFonts.poppins(
-                                    textStyle: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
+                                Icon(
+                                  Icons.phone,
+                                  color: Colors.white,
                                 ),
                                 SizedBox(
-                                  width: 30,
+                                  width: 10,
                                 ),
-                                Expanded(
-                                  child: Text(
-                                    "Address",
+                                Text(
+                                  _.customer.length > 0
+                                      ? _.customer[0].phone
+                                      : "",
+                                  style: GoogleFonts.poppins(
+                                      textStyle: TextStyle(fontSize: 18),
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.symmetric(
+                  vertical: 30,
+                  horizontal: 30,
+                ),
+                height: MediaQuery.of(context).size.height * 0.67,
+                width: double.infinity,
+                color: Color(0xFFf4f6fa),
+                child: Container(
+                  width: double.infinity,
+                  height: double.infinity,
+                  decoration: BoxDecoration(
+                    color: Colors.grey.shade200,
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                  child: Column(
+                    children: [
+                      Expanded(
+                        child: Container(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 10,
+                            vertical: 20,
+                          ),
+                          child: Column(
+                            children: [
+                              Row(
+                                children: [
+                                  Text(
+                                    "ID",
                                     style: GoogleFonts.poppins(
                                       textStyle: TextStyle(
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),
                                   ),
-                                ),
-                                Text(
-                                  "Actions",
-                                  style: GoogleFonts.poppins(
-                                    textStyle: TextStyle(
-                                      fontWeight: FontWeight.bold,
+                                  SizedBox(
+                                    width: 30,
+                                  ),
+                                  Expanded(
+                                    child: Text(
+                                      "Address",
+                                      style: GoogleFonts.poppins(
+                                        textStyle: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
                                     ),
                                   ),
-                                ),
-                              ],
-                            ),
-                            Divider(),
-                            Expanded(
-                              child: Container(
-                                alignment: Alignment.topCenter,
-                                child: ListView.builder(
-                                  addAutomaticKeepAlives: true,
-                                  itemCount: _.address.length <= 0
-                                      ? _.address.length + 1
-                                      : _.address.length,
-                                  itemBuilder: (context, i) {
-                                    return _.address.length > 0
-                                        ? _addressWidget(
-                                            _.address[i].addressId,
-                                            _.address[i].address,
-                                          )
-                                        : Center(
-                                            child: Text(
-                                                "No hay data, agrega una direccion"),
-                                          );
-                                  },
+                                  Text(
+                                    "Actions",
+                                    style: GoogleFonts.poppins(
+                                      textStyle: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Divider(),
+                              Expanded(
+                                child: Container(
+                                  alignment: Alignment.topCenter,
+                                  child: ListView.builder(
+                                    addAutomaticKeepAlives: true,
+                                    itemCount: _.address.length <= 0
+                                        ? _.address.length + 1
+                                        : _.address.length,
+                                    itemBuilder: (context, i) {
+                                      return _.address.length > 0
+                                          ? _addressWidget(
+                                              _.address[i].addressId,
+                                              _.address[i].address,
+                                            )
+                                          : Center(
+                                              child: Text(
+                                                  "No hay data, agrega una direccion"),
+                                            );
+                                    },
+                                  ),
                                 ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        _.inputController.text = "";
-                        showDialog(
-                          context: context,
-                          builder: (BuildContext context) {
-                            return Dialog(
-                              elevation: 0,
-                              backgroundColor: Colors.transparent,
-                              child: contentBox(context, _),
-                            );
-                          },
-                        );
-                      },
-                      child: Container(
-                        alignment: Alignment.center,
-                        margin:
-                            EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                        height: 50,
-                        width: double.infinity,
-                        color: Colors.blue.shade300,
-                        child: Text("Add Address"),
+                      GestureDetector(
+                        onTap: () {
+                          _.inputController.text = "";
+                          showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return Dialog(
+                                elevation: 0,
+                                backgroundColor: Colors.transparent,
+                                child: contentBox(context, _),
+                              );
+                            },
+                          );
+                        },
+                        child: Container(
+                          alignment: Alignment.center,
+                          margin: EdgeInsets.symmetric(
+                              horizontal: 10, vertical: 10),
+                          height: 50,
+                          width: double.infinity,
+                          color: Colors.blue.shade300,
+                          child: Text("Add Address"),
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
